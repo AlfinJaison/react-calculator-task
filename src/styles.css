@@ -1,0 +1,17 @@
+@import "antd/dist/antd.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.m-10 {
+  margin: 10px;
+}
+.w-200 {
+  width: 200px;
+}
+
+.inline-block {
+  display: inline-block;
+}
