@@ -1,4 +1,9 @@
 
+## DEMO available on CodeSandbox 
+CodeSandbox [https://codesandbox.io/s/reactcalculatortask-sncz3o](https://codesandbox.io/s/reactcalculatortask-sncz3o)
+
+CodeSandbox Live Demo [https://sncz3o.csb.app/](https://sncz3o.csb.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -9,4 +14,3 @@ In the project directory, you can run:
 
 Installs dependencies and runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
