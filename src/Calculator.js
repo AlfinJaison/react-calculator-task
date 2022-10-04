@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Input, Button, Divider } from "antd";
 import Row from "./Row";
 
 export default function Calculator() {
+  //STATE CONTAINING LIST OF ROWS
   const [rows, setRows] = useState([
     {
       operation: "add",
-      value: 0,
+      value: "0",
       disabled: false
     }
   ]);
 
-  useEffect(() => {}, []);
-
+  //UPDATES VALUE OF ROWS[INDEX][PROPERTY]
   function onRowChange(index, field, value) {
     console.log(index, field, value);
     setRows((prevState) => {
-      if (field === "value" && value.length < 1) value = 0;
       prevState[index][field] = value;
       return [...prevState];
     });
   }
 
+  //APPENDS A ROW TO THE STATE (ROWS)
   function addRow() {
     setRows((prevState) => {
       let row = {
@@ -34,6 +34,7 @@ export default function Calculator() {
     });
   }
 
+  //FILTERS OUT THE DELETED ROW USING INDEX FROM THE STATE (ROWS)
   function deleteRow(rowIndex) {
     setRows((prevState) => {
       let state = prevState.filter((row, index) => index !== rowIndex);
@@ -41,11 +42,15 @@ export default function Calculator() {
     });
   }
 
+  //CALCULATES SUM OF ALL INPUT VALUES FROM THE STATE (ROWS)
   function calcSum() {
     let sum = 0;
     rows.forEach((row) => {
       const { value, operation, disabled } = row;
-      if (!disabled) {
+      //ONLY DO THE OPERATION IF ROW IS NOT DISABLED
+      //AND INPUT VALUE IS NOT AN EMPTY STRING
+      if (!disabled && value.length > 0) {
+        //VALUE FROM INPUT IS STRING AND MUST BE PARSED BEFORE OPERATION
         let parsedValue = parseFloat(value);
         if (operation === "add") sum += parsedValue;
         if (operation === "subtract") sum -= parsedValue;
